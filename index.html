@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abigail Barretto — Brand & Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Great+Vibes&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --peach:#FED0BB;
+  --blush:#FCB9B2;
+  --cran:#B23A48;
+  --rose:#8C2F39;
+  --plum:#461220;
+  --mid:#7A3540;
+  --dim:#B08080;
+  --white:#FFF8F5;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--peach);color:var(--plum);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000;opacity:.5;}
+
+/* CURSOR */
+#cur{position:fixed;width:10px;height:10px;background:var(--cran);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cur2{position:fixed;width:28px;height:28px;border:1px solid var(--cran);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.45;transition:all .12s ease;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 52px;display:flex;justify-content:space-between;align-items:center;background:rgba(254,208,187,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(178,58,72,0.1);}
+.nav-logo{font-family:'Great Vibes',cursive;font-size:26px;color:var(--plum);text-decoration:none;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--cran);}
+.nav-cta{font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:9px 22px;border:1px solid var(--cran);color:var(--cran);text-decoration:none;transition:background .2s,color .2s;}
+.nav-cta:hover{background:var(--cran);color:var(--white);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--plum);transition:transform .3s,opacity .3s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--peach);z-index:199;flex-direction:column;justify-content:center;align-items:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .3s;}
+.mobile-menu.open{opacity:1;pointer-events:all;}
+.mobile-menu a{font-family:'Great Vibes',cursive;font-size:52px;color:var(--plum);text-decoration:none;transition:color .2s;}
+.mobile-menu a:hover{color:var(--cran);}
+.mobile-menu .mob-cta{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--cran);color:var(--cran);padding:12px 36px;}
+
+/* HERO */
+.hero{min-height:100svh;padding:110px 52px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cran);margin-bottom:28px;opacity:0;animation:fadeUp .6s ease .1s forwards;}
+.hero-dot{width:5px;height:5px;background:var(--cran);border-radius:50%;animation:pulse 2s infinite;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,88px);font-weight:500;line-height:1;color:var(--plum);margin-bottom:16px;opacity:0;animation:fadeUp .7s ease .2s forwards;}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,22px);font-weight:400;font-style:italic;color:var(--cran);margin-bottom:28px;opacity:0;animation:fadeUp .7s ease .32s forwards;}
+.hero-divider{width:48px;height:1px;background:var(--cran);opacity:.35;margin-bottom:28px;animation:fadeIn .6s ease .44s forwards;}
+.hero-bio{font-size:15px;line-height:1.85;color:var(--mid);max-width:420px;margin-bottom:40px;opacity:0;animation:fadeUp .7s ease .5s forwards;}
+.hero-bio strong{color:var(--plum);font-weight:500;}
+.hero-actions{display:flex;gap:16px;align-items:center;opacity:0;animation:fadeUp .7s ease .62s forwards;}
+.btn-primary{display:inline-block;padding:13px 32px;background:var(--plum);color:var(--peach);font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;}
+.btn-primary:hover{background:var(--rose);transform:translateY(-1px);}
+.btn-ghost{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cran);text-decoration:none;border-bottom:1px solid rgba(178,58,72,.3);padding-bottom:2px;transition:border-color .2s;}
+.btn-ghost:hover{border-color:var(--cran);}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:2px;opacity:0;animation:fadeIn .9s ease .3s forwards;}
+.hero-card{background:var(--white);padding:32px 28px;border:1px solid rgba(178,58,72,0.08);transition:background .3s;position:relative;overflow:hidden;}
+.hero-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--cran);transform:scaleX(0);transform-origin:left;transition:transform .35s ease;}
+.hero-card:hover{background:var(--blush);}
+.hero-card:hover::after{transform:scaleX(1);}
+.hero-card:first-child{background:var(--plum);}
+.hero-card:first-child .hc-val{color:var(--peach);}
+.hero-card:first-child .hc-label{color:rgba(254,208,187,.4);}
+.hero-card:first-child:hover{background:#5a1828;}
+.hc-val{font-family:'Playfair Display',serif;font-size:44px;font-weight:400;color:var(--cran);line-height:1;margin-bottom:8px;}
+.hc-label{font-size:11px;color:var(--dim);letter-spacing:.06em;line-height:1.4;}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--cran);padding:12px 0;overflow:hidden;white-space:nowrap;}
+.marquee-track{display:inline-flex;animation:ticker 26s linear infinite;}
+.m-item{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--peach);padding:0 28px;letter-spacing:.03em;}
+.m-sep{color:rgba(254,208,187,.35);}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* NUMBERS */
+.numbers{background:var(--blush);padding:0 52px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(178,58,72,0.1);border-bottom:1px solid rgba(178,58,72,0.1);}
+.num-cell{padding:52px 32px;text-align:center;border-right:1px solid rgba(178,58,72,0.1);transition:background .3s;}
+.num-cell:last-child{border-right:none;}
+.num-cell:hover{background:rgba(178,58,72,.06);}
+.num-val{font-family:'Playfair Display',serif;font-size:56px;font-weight:400;color:var(--cran);line-height:1;margin-bottom:10px;}
+.num-label{font-size:11px;color:var(--mid);letter-spacing:.06em;line-height:1.5;}
+
+/* SHARED SECTION */
+section{padding:96px 52px;}
+.s-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--cran);margin-bottom:12px;}
+.s-heading{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,64px);font-weight:500;line-height:1;color:var(--plum);margin-bottom:56px;}
+.s-heading em{font-style:italic;color:var(--cran);}
+
+/* EXPERIENCE */
+#experience{background:var(--white);}
+.exp-list{display:flex;flex-direction:column;gap:2px;}
+.exp-item{border:1px solid rgba(178,58,72,0.1);background:var(--white);padding:0 36px;overflow:hidden;max-height:70px;transition:max-height .5s cubic-bezier(.16,1,.3,1),background .3s,border-color .3s;cursor:pointer;}
+.exp-item.open{max-height:560px;background:var(--peach);border-color:rgba(178,58,72,.25);}
+.exp-header{display:flex;align-items:center;padding:18px 0;gap:12px;}
+.exp-num{font-family:'DM Mono',monospace;font-size:10px;color:rgba(178,58,72,.35);width:36px;flex-shrink:0;}
+.exp-co{font-family:'Playfair Display',serif;font-size:24px;font-style:italic;color:var(--plum);flex:1;transition:color .2s;}
+.exp-item.open .exp-co{color:var(--cran);}
+.exp-role{font-size:11px;color:var(--dim);letter-spacing:.06em;width:220px;text-align:right;flex-shrink:0;}
+.exp-date{font-family:'DM Mono',monospace;font-size:10px;color:rgba(70,18,32,.25);width:140px;text-align:right;flex-shrink:0;}
+.exp-plus{font-family:'Playfair Display',serif;font-size:22px;color:var(--cran);width:28px;text-align:right;transition:transform .3s;flex-shrink:0;}
+.exp-item.open .exp-plus{transform:rotate(45deg);}
+.exp-body{padding:20px 0 28px 48px;border-top:1px solid rgba(178,58,72,.08);}
+.exp-subtitle{font-size:10px;color:var(--cran);letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px;opacity:.7;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.exp-bullets li{font-size:14px;line-height:1.75;color:var(--mid);display:flex;gap:14px;}
+.exp-bullets li::before{content:'–';color:var(--cran);flex-shrink:0;}
+
+/* PROJECTS */
+#work{background:var(--peach);}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.proj{background:var(--white);border:1px solid rgba(178,58,72,.1);padding:40px 36px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s;cursor:pointer;}
+.proj::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cran),var(--blush));transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.proj:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(70,18,32,.08);}
+.proj:hover::before{transform:scaleX(1);}
+.proj-num{font-family:'DM Mono',monospace;font-size:9px;color:rgba(178,58,72,.3);margin-bottom:20px;}
+.proj-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;}
+.proj-tag{font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;border:1px solid rgba(178,58,72,.18);color:var(--dim);border-radius:100px;transition:border-color .2s,color .2s;}
+.proj:hover .proj-tag{border-color:var(--cran);color:var(--cran);}
+.proj-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);font-style:italic;color:var(--plum);margin-bottom:14px;line-height:1.15;}
+.proj-desc{font-size:13px;line-height:1.8;color:var(--mid);margin-bottom:28px;}
+.proj-metrics{display:flex;gap:24px;flex-wrap:wrap;}
+.pm-val{font-family:'Playfair Display',serif;font-size:24px;color:var(--cran);line-height:1;}
+.pm-label{font-size:10px;color:var(--dim);margin-top:2px;}
+.proj-arrow{position:absolute;bottom:28px;right:28px;font-size:18px;color:rgba(178,58,72,.2);transition:color .3s,transform .3s;}
+.proj:hover .proj-arrow{color:var(--cran);transform:translate(3px,-3px);}
+.proj.featured{grid-column:span 2;background:var(--plum);border:none;display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+.proj.featured::before{background:linear-gradient(90deg,var(--blush),var(--peach));}
+.proj.featured .proj-title{color:var(--peach);}
+.proj.featured .proj-desc{color:rgba(254,208,187,.55);}
+.proj.featured .proj-num{color:rgba(254,208,187,.2);}
+.proj.featured .proj-tag{border-color:rgba(254,208,187,.2);color:rgba(254,208,187,.5);}
+.proj.featured:hover .proj-tag{border-color:var(--blush);color:var(--blush);}
+.proj.featured .pm-val{color:var(--blush);}
+.proj.featured .pm-label{color:rgba(254,208,187,.4);}
+.proj.featured:hover{background:#5a1828;box-shadow:none;transform:none;}
+.proj.featured .proj-arrow{position:static;margin-top:28px;color:rgba(254,208,187,.15);}
+.proj.featured:hover .proj-arrow{color:var(--blush);}
+
+/* SKILLS */
+#skills{background:var(--white);}
+.skills-layout{display:grid;grid-template-columns:280px 1fr;gap:72px;align-items:start;}
+.skills-intro{position:sticky;top:100px;font-size:14px;line-height:1.9;color:var(--mid);}
+.skills-intro strong{color:var(--plum);font-weight:500;display:block;font-family:'Playfair Display',serif;font-size:19px;font-style:italic;margin-bottom:16px;line-height:1.3;}
+.skills-intro p{margin-bottom:14px;}
+.skills-groups{display:flex;flex-direction:column;gap:2px;}
+.sg{border:1px solid rgba(178,58,72,.1);background:var(--white);padding:24px 28px;display:flex;gap:28px;align-items:flex-start;transition:background .25s;}
+.sg:hover{background:var(--peach);}
+.sg-label{font-family:'Playfair Display',serif;font-size:16px;font-style:italic;color:var(--cran);width:150px;flex-shrink:0;line-height:1.3;}
+.sg-items{display:flex;flex-wrap:wrap;gap:8px;}
+.sg-pill{font-size:11px;color:var(--mid);padding:5px 14px;background:rgba(178,58,72,.05);border:1px solid rgba(178,58,72,.12);border-radius:100px;letter-spacing:.03em;transition:background .2s,color .2s;}
+.sg:hover .sg-pill{background:rgba(178,58,72,.1);color:var(--plum);}
+
+/* EDUCATION */
+#education{background:var(--blush);}
+.edu-list{display:flex;flex-direction:column;gap:2px;}
+.edu-item{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;background:var(--white);border:1px solid rgba(178,58,72,0.1);padding:40px 36px;transition:background .3s;}
+.edu-item:hover{background:var(--peach);}
+.edu-degree{font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);font-weight:500;font-style:italic;color:var(--plum);line-height:1.1;margin-bottom:10px;}
+.edu-school{font-size:15px;color:var(--cran);font-weight:500;margin-bottom:4px;}
+.edu-short{font-weight:300;color:var(--dim);}
+.edu-location{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;}
+.edu-meta{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px;}
+.edu-grade{font-family:'Playfair Display',serif;font-size:28px;color:var(--cran);font-weight:400;}
+.edu-year{font-family:'DM Mono',monospace;font-size:12px;color:var(--dim);letter-spacing:.1em;}
+.edu-spec-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-bottom:12px;}
+.edu-specs{display:flex;flex-wrap:wrap;gap:8px;}
+.edu-spec-pill{font-size:11px;color:var(--mid);padding:5px 14px;background:rgba(178,58,72,.06);border:1px solid rgba(178,58,72,.14);border-radius:100px;letter-spacing:.02em;}
+
+/* POSITIONS / EXTRACURRICULAR */
+.extra-list{display:flex;flex-direction:column;gap:2px;}
+.extra-item{background:var(--white);border:1px solid rgba(178,58,72,0.1);padding:32px 36px;transition:background .3s;}
+.extra-item:hover{background:var(--peach);}
+.extra-header{display:flex;align-items:baseline;gap:16px;margin-bottom:16px;flex-wrap:wrap;}
+.extra-role{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--plum);flex:1;}
+.extra-org{font-size:11px;color:var(--cran);letter-spacing:.08em;}
+.extra-year{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
+.extra-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.extra-bullets li{font-size:14px;line-height:1.75;color:var(--mid);display:flex;gap:14px;}
+.extra-bullets li::before{content:'–';color:var(--cran);flex-shrink:0;}
+
+/* CERTIFICATIONS */
+#certifications{background:var(--white);}
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.cert-card{background:var(--peach);border:1px solid rgba(178,58,72,0.1);padding:36px 32px;display:flex;flex-direction:column;gap:12px;transition:background .3s;}
+.cert-card:hover{background:var(--blush);}
+.cert-status{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;display:inline-block;width:fit-content;}
+.cert-done{background:rgba(178,58,72,.12);color:var(--cran);}
+.cert-progress{background:rgba(70,18,32,.08);color:var(--mid);}
+.cert-title{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;color:var(--plum);line-height:1.3;}
+.cert-desc{font-size:13px;color:var(--mid);line-height:1.65;flex:1;}
+.cert-year{font-family:'DM Mono',monospace;font-size:10px;color:var(--dim);}
+
+/* CONTACT */
+#contact{background:var(--plum);padding:96px 52px;}
+.contact-inner{max-width:640px;}
+.contact-eyebrow{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(252,185,178,.4);margin-bottom:16px;}
+.contact-heading{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,72px);font-weight:500;color:var(--peach);line-height:1.05;margin-bottom:24px;}
+.contact-heading em{font-style:italic;color:var(--blush);}
+.contact-desc{font-size:14px;line-height:1.85;color:rgba(254,208,187,.5);margin-bottom:40px;max-width:480px;}
+.contact-desc strong{color:var(--blush);}
+.contact-links{display:flex;flex-direction:column;margin-bottom:40px;}
+.c-link{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(254,208,187,.08);text-decoration:none;color:rgba(254,208,187,.6);font-size:14px;letter-spacing:.03em;transition:color .2s,padding-left .2s;}
+.c-link:hover{color:var(--peach);padding-left:8px;}
+.c-link-arrow{font-size:16px;}
+.contact-cta{display:inline-block;background:var(--cran);color:var(--white);padding:15px 40px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s;}
+.contact-cta:hover{background:var(--rose);transform:translateY(-1px);}
+
+/* FOOTER */
+footer{background:var(--plum);padding:20px 52px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(254,208,187,.06);}
+.f-logo{font-family:'Great Vibes',cursive;font-size:20px;color:rgba(254,208,187,.3);}
+.f-copy{font-family:'DM Mono',monospace;font-size:9px;color:rgba(254,208,187,.18);letter-spacing:.12em;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}
+.rd2{transition-delay:.2s;}
+
+/* MOBILE */
+@media(max-width:768px){
+  body{cursor:auto;}
+  #cur,#cur2{display:none;}
+  nav{padding:14px 20px;}
+  .nav-links,.nav-cta{display:none;}
+  .nav-hamburger{display:flex;}
+  .mobile-menu{display:flex;}
+  .hero{grid-template-columns:1fr;padding:90px 20px 48px;gap:40px;}
+  .hero-right{grid-template-columns:1fr 1fr;}
+  .numbers{grid-template-columns:1fr 1fr;padding:0 20px;}
+  .num-cell{padding:32px 20px;}
+  .num-val{font-size:40px;}
+  section{padding:64px 20px;}
+  .s-heading{margin-bottom:36px;}
+  .exp-item{padding:0 16px;}
+  .exp-header{flex-wrap:wrap;padding:14px 0;}
+  .exp-co{font-size:20px;}
+  .exp-role,.exp-date{display:none;}
+  .exp-body{padding-left:0;}
+  .exp-item.open{max-height:620px;}
+  .projects-grid{grid-template-columns:1fr;}
+  .proj.featured{grid-column:span 1;display:flex;flex-direction:column;gap:20px;}
+  .proj{padding:28px 20px;}
+  .skills-layout{grid-template-columns:1fr;gap:32px;}
+  .skills-intro{position:static;}
+  .sg{flex-direction:column;gap:12px;padding:20px 16px;}
+  .sg-label{width:auto;}
+  #contact{padding:64px 20px;}
+  .cert-grid{grid-template-columns:1fr;}
+  .extra-item{padding:24px 16px;}
+  .extra-header{flex-direction:column;gap:4px;}
+  .edu-item{grid-template-columns:1fr;gap:24px;padding:28px 20px;}
+  footer{padding:16px 20px;flex-direction:column;gap:6px;text-align:center;}
+}
+@media(max-width:480px){
+  .hero-name{font-size:clamp(40px,11vw,64px);}
+  .hc-val{font-size:32px;}
+  .num-val{font-size:34px;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur2"></div>
+
+<nav>
+  <a class="nav-logo" href="#">Abigail Barretto</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:abigail.barretto97@gmail.com" class="nav-cta">Get in Touch</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mob-link">About</a>
+  <a href="#experience" class="mob-link">Experience</a>
+  <a href="#work" class="mob-link">Work</a>
+  <a href="#education" class="mob-link">Education</a>
+  <a href="#contact" class="mob-link">Contact</a>
+  <a href="mailto:abigail.barretto97@gmail.com" class="mob-cta mob-link">Get in Touch</a>
+</div>
+
+<section class="hero" id="about">
+  <div class="hero-left">
+    <div class="hero-eyebrow"><div class="hero-dot"></div>Currently @ Galderma &nbsp;·&nbsp; Mumbai</div>
+    <h1 class="hero-name">Abigail Barretto</h1>
+    <div class="hero-title">Brand Strategist & Consumer Insights</div>
+    <div class="hero-divider"></div>
+    <p class="hero-bio">MBA graduate with <strong>2.4+ years</strong> across agency, legacy brand, and startup environments. Specialisations in Marketing & Consumer Insights, E-commerce, and Digital Leadership. Targeting Associate Brand Manager roles across <strong>FMCG, beauty, and D2C</strong>.</p>
+    <div class="hero-actions">
+      <a href="#work" class="btn-primary">View Work</a>
+      <a href="mailto:abigail.barretto97@gmail.com" class="btn-ghost">Get in Touch →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-card"><div class="hc-val">8.3M</div><div class="hc-label">Campaign views across integrated mandates</div></div>
+    <div class="hero-card"><div class="hc-val">₹55L</div><div class="hc-label">New business driven through pitches</div></div>
+    <div class="hero-card"><div class="hc-val">331%</div><div class="hc-label">Engagement target exceeded for MNC client</div></div>
+    <div class="hero-card"><div class="hc-val">8k+</div><div class="hc-label">Doctors reached via HCP newsletter</div></div>
+  </div>
+</section>
+
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item">Brand Strategy <span class="m-sep">✦</span></span>
+    <span class="m-item">Consumer Insights <span class="m-sep">✦</span></span>
+    <span class="m-item">Beauty & Personal Care <span class="m-sep">✦</span></span>
+    <span class="m-item">FMCG <span class="m-sep">✦</span></span>
+    <span class="m-item">D2C <span class="m-sep">✦</span></span>
+    <span class="m-item">HCP Engagement <span class="m-sep">✦</span></span>
+    <span class="m-item">Go-to-Market <span class="m-sep">✦</span></span>
+    <span class="m-item">Galderma · Tata Sons · Weber Shandwick <span class="m-sep">✦</span></span>
+    <span class="m-item">Brand Strategy <span class="m-sep">✦</span></span>
+    <span class="m-item">Consumer Insights <span class="m-sep">✦</span></span>
+    <span class="m-item">Beauty & Personal Care <span class="m-sep">✦</span></span>
+    <span class="m-item">FMCG <span class="m-sep">✦</span></span>
+    <span class="m-item">D2C <span class="m-sep">✦</span></span>
+    <span class="m-item">HCP Engagement <span class="m-sep">✦</span></span>
+    <span class="m-item">Go-to-Market <span class="m-sep">✦</span></span>
+    <span class="m-item">Galderma · Tata Sons · Weber Shandwick <span class="m-sep">✦</span></span>
+  </div>
+</div>
+
+<div class="numbers reveal">
+  <div class="num-cell"><div class="num-val">₹55L</div><div class="num-label">New business through RFP pitches</div></div>
+  <div class="num-cell"><div class="num-val">8.3M</div><div class="num-label">Campaign views across mandates</div></div>
+  <div class="num-cell"><div class="num-val">+27%</div><div class="num-label">Client retention sustained</div></div>
+  <div class="num-cell"><div class="num-val">76K+</div><div class="num-label">Award certificates at Tata Sons</div></div>
+</div>
+
+<section id="experience">
+  <div class="s-eyebrow reveal">Experience</div>
+  <div class="s-heading reveal">Where I've <em>worked</em></div>
+  <div class="exp-list">
+
+    <div class="exp-item open reveal" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <span class="exp-num">01</span>
+        <span class="exp-co">Galderma</span>
+        <span class="exp-role">Brand & Marketing Intern</span>
+        <span class="exp-date">Jan 2026 – Present</span>
+        <span class="exp-plus">+</span>
+      </div>
+      <div class="exp-body">
+        <div class="exp-subtitle">Prescription Skincare · Beauty & Dermatology</div>
+        <ul class="exp-bullets">
+          <li>Contributing to brand strategy and GTM planning for a new Rx skincare product alongside the Senior Brand Manager — HCP adoption and market development.</li>
+          <li>Leading CME event organisation to drive prescription uptake among dermatologists and physicians across key markets.</li>
+          <li>Executing product communications via a medical newsletter reaching 8,000+ doctors — content planning, compliance, and deployment.</li>
+          <li>Participating in brand reviews, strategy sessions, and cross-functional approvals.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <span class="exp-num">02</span>
+        <span class="exp-co">Tata Sons</span>
+        <span class="exp-role">Brand & Marketing Intern</span>
+        <span class="exp-date">Apr – Jun 2025</span>
+        <span class="exp-plus">+</span>
+      </div>
+      <div class="exp-body">
+        <div class="exp-subtitle">Customer Centricity Award Program</div>
+        <ul class="exp-bullets">
+          <li>Reduced vendor costs from ₹12L to ₹5.8L for 76,000+ award certificates while maintaining data security standards.</li>
+          <li>Managed two customer jury panels and final evaluation — briefs, queries, and shortlisting of Top 7 stories.</li>
+          <li>Designed homepage copy and CTA flow for CX-CS website; curated 25+ award-winning stories for the team's first compendium.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <span class="exp-num">03</span>
+        <span class="exp-co">Bifrost AI</span>
+        <span class="exp-role">Strategy Analyst</span>
+        <span class="exp-date">Apr 2023 – Jun 2024</span>
+        <span class="exp-plus">+</span>
+      </div>
+      <div class="exp-body">
+        <div class="exp-subtitle">Gen AI SaaS · Founders' Office · Series A</div>
+        <ul class="exp-bullets">
+          <li>Built GTM strategy across 200+ accounts in 4 verticals; developed financial model for investor pitches.</li>
+          <li>Led PR strategy for Series A across 15 media outlets.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item reveal" onclick="toggleExp(this)">
+      <div class="exp-header">
+        <span class="exp-num">04</span>
+        <span class="exp-co">Weber Shandwick</span>
+        <span class="exp-role">Senior Copywriter</span>
+        <span class="exp-date">Sep 2020 – Jan 2023</span>
+        <span class="exp-plus">+</span>
+      </div>
+      <div class="exp-body">
+        <div class="exp-subtitle">Castrol · Kotak Bank · L&T · ABB · Novartis</div>
+        <ul class="exp-bullets">
+          <li>Boosted follower engagement 159% in 12 months by publishing 1k+ social posts and building content calendars.</li>
+          <li>Drove 8.3M+ views for clients by ideating and executing integrated campaigns that strengthened recall and awareness.</li>
+          <li>Increased follower count +460% by tailoring copy to customer pain points, optimising messaging across channels.</li>
+          <li>Exceeded engagement target by 331% for an MNC client with thought-leadership content and brand storytelling.</li>
+          <li>Rebranded an international tourism board's microsite applying consumer insight-led UX copywriting, improving clarity and flow.</li>
+          <li>Rebranded a chemical firm into an IT employer brand, from pitch to execution, securing 30% applicants above target.</li>
+          <li>Drove ₹55L in new business through persuasive RFP copy and cross-team collaboration, increasing client retention +27%.</li>
+          <li>Presented monthly social media insights to client managers, recommending strategy shifts that improved engagement.</li>
+          <li>Trained 4 interns in copywriting, campaign planning, and client interaction, improving turnaround time for a major MNC.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="work">
+  <div class="s-eyebrow reveal">Selected Projects</div>
+  <div class="s-heading reveal">Work that <em>shipped</em></div>
+  <div class="projects-grid">
+
+    <div class="proj featured reveal">
+      <div>
+        <div class="proj-num">01 — Featured</div>
+        <div class="proj-tags"><span class="proj-tag">D2C</span><span class="proj-tag">E-Commerce</span><span class="proj-tag">GTM Strategy</span></div>
+        <div class="proj-title">The Good Harvest</div>
+      </div>
+      <div>
+        <div class="proj-desc" style="margin-top:24px;">A curated farm-to-door D2C platform for artisanal goods. Full go-to-market strategy, conversion-optimised prototype, and backend fulfilment plan — MBA capstone.</div>
+        <div class="proj-metrics">
+          <div><div class="pm-val">USD 5B+</div><div class="pm-label">TAM Sized</div></div>
+          <div><div class="pm-val">GA4 + Meta</div><div class="pm-label">Metrics Framework</div></div>
+          <div><div class="pm-val">3 Verticals</div><div class="pm-label">GTM Coverage</div></div>
+        </div>
+        <div class="proj-arrow">↗</div>
+      </div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-num">02</div>
+      <div class="proj-tags"><span class="proj-tag">AI</span><span class="proj-tag">Beauty Tech</span><span class="proj-tag">Prototype</span></div>
+      <div class="proj-title">GlowCast Pro</div>
+      <div class="proj-desc">Built an AI chatbot that personalises skincare routines using climate conditions, skin concerns, and product logic. Designed conversational UX to translate beauty advice into clear, routine recommendations.</div>
+      <div class="proj-metrics">
+        <div><div class="pm-val">AI-Driven</div><div class="pm-label">Personalisation</div></div>
+        <div><div class="pm-val">D2C</div><div class="pm-label">Beauty</div></div>
+      </div>
+      <div class="proj-arrow">↗</div>
+    </div>
+
+    <div class="proj reveal">
+      <div class="proj-num">03</div>
+      <div class="proj-tags"><span class="proj-tag">Live</span><span class="proj-tag">Galderma</span><span class="proj-tag">Medical Comms</span></div>
+      <div class="proj-title">HCP Medical Newsletter</div>
+      <div class="proj-desc">Product communications for a prescription skincare brand reaching 8,000+ dermatologists and physicians nationally.</div>
+      <div class="proj-metrics">
+        <div><div class="pm-val">8,000+</div><div class="pm-label">Doctors Reached</div></div>
+        <div><div class="pm-val">Rx</div><div class="pm-label">Brand Category</div></div>
+      </div>
+      <div class="proj-arrow">↗</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="s-eyebrow reveal">Capabilities</div>
+  <div class="s-heading reveal">What I <em>bring</em></div>
+  <div class="skills-layout">
+    <div class="skills-intro reveal">
+      <strong>Marketing & Consumer Insights · E-commerce · Digital Leadership</strong>
+      <p>MBA graduate (BITSoM, 2024) with experience across brand strategy, campaign management, and consumer communications.</p>
+      <p>Targeting <strong>Associate Brand Manager</strong> roles in beauty, personal care, and FMCG.</p>
+    </div>
+    <div class="skills-groups">
+      <div class="sg reveal">
+        <div class="sg-label">Brand & Strategy</div>
+        <div class="sg-items"><span class="sg-pill">Brand Strategy</span><span class="sg-pill">Campaign Management</span><span class="sg-pill">Consumer Insights</span><span class="sg-pill">Go-to-Market Planning</span><span class="sg-pill">HCP Engagement</span><span class="sg-pill">RFP Writing</span></div>
+      </div>
+      <div class="sg reveal rd1">
+        <div class="sg-label">Content & Creative</div>
+        <div class="sg-items"><span class="sg-pill">UX Copywriting</span><span class="sg-pill">Content Marketing</span><span class="sg-pill">Brand Storytelling</span><span class="sg-pill">Medical Communications</span><span class="sg-pill">Editorial Strategy</span></div>
+      </div>
+      <div class="sg reveal rd2">
+        <div class="sg-label">Tools</div>
+        <div class="sg-items"><span class="sg-pill">Canva</span><span class="sg-pill">ChatGPT · Gemini · Perplexity</span><span class="sg-pill">Google Analytics</span><span class="sg-pill">GA4 · Meta Pixel</span><span class="sg-pill">MS Office</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="s-eyebrow reveal">Education</div>
+  <div class="s-heading reveal">Where I <em>studied</em></div>
+  <div class="edu-list">
+
+    <div class="edu-item reveal">
+      <div class="edu-left">
+        <div class="edu-degree">MBA</div>
+        <div class="edu-school">BITS School of Management <span class="edu-short">(BITSoM)</span></div>
+        <div class="edu-location">Mumbai</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-meta">
+          <span class="edu-grade">3.38 / 4.0</span>
+          <span class="edu-year">2024</span>
+        </div>
+        <div class="edu-spec-label">Specialisations</div>
+        <div class="edu-specs">
+          <span class="edu-spec-pill">Marketing & Consumer Insights</span>
+          <span class="edu-spec-pill">E-commerce</span>
+          <span class="edu-spec-pill">Digital Leadership</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item reveal rd1">
+      <div class="edu-left">
+        <div class="edu-degree">B.A. English Literature</div>
+        <div class="edu-school">Sophia College for Women <span class="edu-short">(Autonomous)</span></div>
+        <div class="edu-location">Mumbai</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-meta">
+          <span class="edu-grade">8.46 / 10</span>
+          <span class="edu-year">2020</span>
+        </div>
+        <div class="edu-spec-label">Achievement</div>
+        <div class="edu-specs">
+          <span class="edu-spec-pill">Gill Mohan Prize — 2nd in TYBA single major, Dept. of English</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item reveal rd2">
+      <div class="edu-left">
+        <div class="edu-degree">B.A. Psychology</div>
+        <div class="edu-school">Sophia College for Women <span class="edu-short">(Autonomous)</span></div>
+        <div class="edu-location">Mumbai</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-meta">
+          <span class="edu-grade">8.45 / 10</span>
+          <span class="edu-year">2019</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item reveal rd1">
+      <div class="edu-left">
+        <div class="edu-degree">Indian School Certificate (ISC)</div>
+        <div class="edu-school">Bombay Scottish School <span class="edu-short">— Mahim</span></div>
+        <div class="edu-location">Mumbai</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-meta">
+          <span class="edu-grade">94.40%</span>
+          <span class="edu-year">2015</span>
+        </div>
+        <div class="edu-spec-label">Achievement</div>
+        <div class="edu-specs">
+          <span class="edu-spec-pill">Rank 1 · Chairman's Commendation — Humanities topper</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item reveal rd2">
+      <div class="edu-left">
+        <div class="edu-degree">Indian Certificate of Secondary Education (ICSE)</div>
+        <div class="edu-school">Bombay Scottish School <span class="edu-short">— Powai</span></div>
+        <div class="edu-location">Mumbai</div>
+      </div>
+      <div class="edu-right">
+        <div class="edu-meta">
+          <span class="edu-grade">80.67%</span>
+          <span class="edu-year">2013</span>
+        </div>
+        <div class="edu-spec-label">Achievement</div>
+        <div class="edu-specs">
+          <span class="edu-spec-pill">Gold Medallist & State Topper — English Olympiad (IAIS)</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="positions">
+  <div class="s-eyebrow reveal">Positions of Responsibility</div>
+  <div class="s-heading reveal">Beyond the <em>brief</em></div>
+  <div class="extra-list">
+
+    <div class="extra-item reveal">
+      <div class="extra-header">
+        <div class="extra-role">Festival Coordinator</div>
+        <div class="extra-org">College Festival</div>
+        <div class="extra-year">2018</div>
+      </div>
+      <ul class="extra-bullets">
+        <li>Achieved ~20k footfall for the college festival by securing outdoor media sponsorships and leading promotions.</li>
+        <li>Improved follower count +17% on festival pages by creating content that appealed to and engaged student audiences.</li>
+        <li>Secured 4 sponsors through targeted outreach, leading negotiations and successfully closing partnerships.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="extracurricular" style="background:var(--white);">
+  <div class="s-eyebrow reveal">Extracurricular Activities</div>
+  <div class="s-heading reveal">Outside the <em>office</em></div>
+  <div class="extra-list">
+
+    <div class="extra-item reveal">
+      <div class="extra-header">
+        <div class="extra-role">Senior Club Member & Co-Head of Outreach</div>
+        <div class="extra-org">Product Management Club</div>
+        <div class="extra-year">2025</div>
+      </div>
+      <ul class="extra-bullets">
+        <li>Selected as one of only 1/11 Senior Club members after rigorous assignment and interview evaluation.</li>
+        <li>Appointed Co-Head of Outreach — leading 5 juniors to secure speakers, live projects, and sponsorships.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="s-eyebrow reveal">Certifications</div>
+  <div class="s-heading reveal">Always <em>learning</em></div>
+  <div class="cert-grid">
+
+    <div class="cert-card reveal">
+      <div class="cert-status cert-done">Completed</div>
+      <div class="cert-title">IBM Product Management Certificate</div>
+      <div class="cert-desc">Product lifecycle, personas, value creation, SWOT analysis.</div>
+      <div class="cert-year">2025</div>
+    </div>
+
+    <div class="cert-card reveal rd1">
+      <div class="cert-status cert-progress">In Progress</div>
+      <div class="cert-title">UPenn Customer Analytics Certificate</div>
+      <div class="cert-desc">Customer data, predictive tools, business insights.</div>
+      <div class="cert-year">2026</div>
+    </div>
+
+    <div class="cert-card reveal rd2">
+      <div class="cert-status cert-progress">In Progress</div>
+      <div class="cert-title">Google Analytics Certification</div>
+      <div class="cert-desc">Web analytics, traffic analysis, conversion tracking.</div>
+      <div class="cert-year">2026</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-inner reveal">
+    <div class="contact-eyebrow">// Open to opportunities</div>
+    <h2 class="contact-heading">Let's work<br><em>together</em></h2>
+    <p class="contact-desc">Looking for <strong>Associate Brand Manager</strong> roles across beauty, personal care, and FMCG. Available for full-time positions in Mumbai.</p>
+    <div class="contact-links">
+      <a href="mailto:abigail.barretto97@gmail.com" class="c-link">abigail.barretto97@gmail.com <span class="c-link-arrow">↗</span></a>
+      <a href="https://www.linkedin.com/in/yourprofile" class="c-link" target="_blank" rel="noopener noreferrer">LinkedIn <span class="c-link-arrow">↗</span></a>
+      <a href="#" class="c-link">Mumbai, India <span class="c-link-arrow">↗</span></a>
+    </div>
+    <a href="mailto:abigail.barretto97@gmail.com" class="contact-cta">Get in Touch →</a>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Abigail Barretto</span>
+  <span class="f-copy">Mumbai · 2026 · Brand Strategist</span>
+</footer>
+
+<script>
+// Custom cursor
+const cur = document.getElementById('cur');
+const cur2 = document.getElementById('cur2');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cur.style.left = mx + 'px';
+  cur.style.top = my + 'px';
+});
+(function anim() {
+  rx += (mx - rx) * .12;
+  ry += (my - ry) * .12;
+  cur2.style.left = rx + 'px';
+  cur2.style.top = ry + 'px';
+  requestAnimationFrame(anim);
+})();
+document.querySelectorAll('a, button, .exp-item, .proj, .sg, .hero-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cur2.style.transform = 'translate(-50%,-50%) scale(1.8)'; cur2.style.borderColor = 'var(--rose)'; cur2.style.opacity = '.35'; });
+  el.addEventListener('mouseleave', () => { cur2.style.transform = 'translate(-50%,-50%) scale(1)'; cur2.style.borderColor = 'var(--cran)'; cur2.style.opacity = '.45'; });
+});
+
+// Hamburger
+const hb = document.getElementById('hamburger');
+const mm = document.getElementById('mobileMenu');
+hb.addEventListener('click', () => {
+  hb.classList.toggle('open');
+  mm.classList.toggle('open');
+  document.body.style.overflow = mm.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => {
+  hb.classList.remove('open');
+  mm.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+// Experience accordion
+function toggleExp(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.exp-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
