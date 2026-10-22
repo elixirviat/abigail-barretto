@@ -73,9 +73,7 @@ const PANS = [
     'B.A. Psychology & English Literature, Sophia College for Women, Mumbai · 8.46/10 · 2020 · Gill Mohan Prize, Rank 2, Dept. of English.',
     "ISC, Bombay Scottish School (Mahim) · 94.40% · 2015 · Chairman's Commendation, ISC Humanities topper."] }] },
 
-  { name:'Say Hello', cls:'matte m-ink', org:'Contact', meta:'Mumbai, India', link:{ href:'https://www.linkedin.com/in/abigail-barretto', text:'LinkedIn: linkedin.com/in/abigail-barretto' }, roles:[{ bullets:[
-    'Email: YOUR_EMAIL_HERE'] }] }
-];
+  { name:'Say Hello', cls:'matte m-ink', org:'Contact', meta:'Mumbai, India', link:{ href:'https://www.linkedin.com/in/abigail-barretto', text:'LinkedIn: linkedin.com/in/abigail-barretto'] }] };
 
 /* ===== Page behaviour (no need to edit below) ===== */
 const grid = document.getElementById('grid');
