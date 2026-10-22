@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abigail Barretto · Beauty</title>
+<meta name="description" content="Abigail Barretto: brand, category and consumer insights for beauty. Mumbai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#7B83EB;--ink:#16123F;--gold:#C9A45C;--cap:#E9D9B2}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg)}
+body,body *{cursor:url(sponge.svg) 3 3,auto}
+a{color:var(--ink);text-decoration-thickness:2px;text-underline-offset:4px}
+a:hover{color:#FFFFFF}
+.page{position:relative;min-height:100vh;overflow:hidden;font-family:'Hanken Grotesk',sans-serif;color:var(--ink);padding-bottom:64px}
+
+/* Top links, beside the first name */
+.nav{position:absolute;top:28px;right:40px;z-index:3;display:flex;gap:28px;font:800 13px/1 'Hanken Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.nav a{display:inline-flex;align-items:center;min-height:44px}
+
+/* Name */
+.first{margin:-0.11em 0 0 -0.04em;font:400 clamp(120px,28vw,360px)/0.86 'Anton',sans-serif;letter-spacing:-0.01em;color:#FFFFFF;white-space:nowrap}
+.last{display:block;text-align:right;padding-right:4.4vw;margin-top:-0.06em;font:400 clamp(52px,9.4vw,120px)/0.9 'Anton',sans-serif;color:var(--ink)}
+.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:28px 5vw 0}
+.intro p{margin:0}
+.tag{max-width:400px;font:600 20px/1.45 'Hanken Grotesk',sans-serif}
+.hint{font:800 13px/1.4 'Hanken Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase;text-align:right}
+
+/* Palette case */
+.case{width:min(980px,calc(100% - 64px));margin:72px auto 0;padding:40px 44px;background:linear-gradient(160deg,#1D1916,#0B0908);border-radius:8px;transform:rotate(-4deg);box-shadow:0 0 0 3px var(--gold),30px 40px 60px rgba(22,18,63,.45)}
+.grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:28px 22px}
+.cell{all:unset;display:flex;flex-direction:column;gap:10px;min-height:44px}
+.cell:focus-visible{outline:2px solid #FFFFFF;outline-offset:4px;border-radius:4px}
+.pan{position:relative;display:block;width:100%;aspect-ratio:1/1;border-radius:3px;overflow:hidden;box-shadow:0 0 0 2px var(--gold),inset 0 2px 5px rgba(0,0,0,.4);transition:transform .25s ease}
+.cell:hover .pan{transform:translateY(-3px)}
+.cell.sel .pan{box-shadow:0 0 0 2px var(--gold),0 0 0 5px #FFFFFF}
+.cap{font:600 11px/1.2 'Hanken Grotesk',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--cap)}
+
+/* Finishes */
+.matte{background-image:radial-gradient(circle at 35% 30%,rgba(255,255,255,.2),transparent 55%)}
+.m-terracotta{background-color:#C8553D}.m-hotpink{background-color:#E8287A}.m-emerald{background-color:#0E8A5F}.m-coral{background-color:#FF7A59}.m-cobalt{background-color:#2546C9}.m-lilac{background-color:#B79AE6}.m-ink{background-color:#2C2A33}
+.shimmer{background-size:220% 220%;background-position:0% 50%;transition:background-position .9s ease,filter .4s ease}
+.s-gold{background-image:linear-gradient(125deg,#7A5A12,#E9C25A,#FFF2B8,#B88A22,#6E4F10)}
+.s-pink{background-image:linear-gradient(125deg,#8E1F4F,#FF6FA8,#FFD1E6,#E2387D,#7A1640)}
+.s-teal{background-image:linear-gradient(125deg,#0C3E46,#2FB6B0,#B8F0D8,#4A7FD6,#173A5E)}
+.s-holo{background-image:linear-gradient(125deg,#3B5BDB,#9FE7F5,#F6C9FF,#9B8CFF,#2D3E9E)}
+.s-violet{background-image:linear-gradient(125deg,#3A1460,#9B4DE0,#F0C8FF,#6F2BB8,#2A0E47)}
+.shimmer::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.95) 0 1px,transparent 1.6px),radial-gradient(circle,rgba(255,240,200,.8) 0 1px,transparent 1.8px);background-size:9px 9px,13px 13px;background-position:0 0,4px 6px;opacity:.5;mix-blend-mode:screen}
+.shimmer::after{content:"";position:absolute;inset:-20%;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.65) 48%,transparent 60%);transform:translateX(-120%);pointer-events:none}
+.cell:hover .shimmer,.cell.sel .shimmer{background-position:100% 50%;filter:saturate(1.25) brightness(1.12)}
+.cell:hover .shimmer::before,.cell.sel .shimmer::before{animation:twinkle .9s steps(3) infinite;opacity:.95}
+.cell:hover .shimmer::after{animation:sweep 1.1s ease forwards}
+@keyframes twinkle{33%{background-position:3px 2px,0 3px}66%{background-position:1px 5px,6px 0}}
+@keyframes sweep{to{transform:translateX(120%)}}
+@media (prefers-reduced-motion:reduce){.cell:hover .shimmer::before,.cell.sel .shimmer::before,.cell:hover .shimmer::after{animation:none}}
+
+.foot{margin:88px 5vw 0;border-top:2px solid var(--ink);padding-top:16px;font:800 13px/1.4 'Hanken Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase}
+
+/* Swatch card: floats over the palette */
+.card{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);width:min(1060px,calc(100% - 32px));max-height:calc(100vh - 48px);overflow:auto;padding:30px 36px 32px;border-radius:18px;background:#FFFFFF;border:2px dashed var(--ink);box-shadow:0 0 0 6px #FFFFFF,0 30px 70px rgba(22,18,63,.45);display:flex;gap:36px;align-items:flex-start;z-index:20}
+.card[hidden]{display:none}
+.card-head{flex:0 0 270px;display:flex;flex-direction:column;gap:10px}
+.chip{display:block;width:64px;height:64px;border-radius:3px;position:relative;overflow:hidden;box-shadow:0 0 0 2px var(--gold),0 0 0 5px var(--ink)}
+.card-name{margin:8px 0 0;font:400 40px/0.95 'Anton',sans-serif;text-transform:uppercase;color:var(--ink)}
+.card-org{font:800 16px/1.3 'Hanken Grotesk',sans-serif}
+.card-meta{font:400 14px/1.45 'Hanken Grotesk',sans-serif;color:#4B4766}
+.bul{flex:1 1 auto;margin:0;padding:6px 36px 0;border-left:2px solid var(--gold);display:flex;flex-direction:column;gap:8px}
+.bul li{margin-left:18px;font:400 16px/1.5 'Hanken Grotesk',sans-serif;color:#1E1A33}
+.close{all:unset;position:absolute;top:12px;right:12px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;color:var(--ink)}
+.close:hover{background:#ECEBFB}
+.close:focus-visible{outline:2px solid var(--bg)}
+
+/* Phones */
+@media (max-width:760px){
+  .nav{position:static;justify-content:flex-end;flex-wrap:wrap;gap:18px;padding:14px 16px 4px}
+  .first{margin-top:0}
+  .intro{flex-direction:column;align-items:flex-start;gap:14px;padding:22px 16px 0}
+  .tag{font-size:17px}
+  .hint{text-align:left}
+  .case{width:calc(100% - 32px);margin-top:40px;padding:22px 18px;transform:rotate(-2deg)}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 14px}
+  .foot{margin:56px 16px 0}
+  .card{bottom:0;width:100%;max-height:78vh;border-radius:20px 20px 0 0;padding:26px 20px 30px;flex-direction:column;gap:16px;box-shadow:0 -20px 50px rgba(22,18,63,.45)}
+  .card-head{flex:0 0 auto;padding-right:40px}
+  .card-name{font-size:34px}
+  .bul{padding:16px 0 0;border-left:0;border-top:2px solid var(--gold)}
+}
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="nav" aria-label="Contact and CV">
+    <a href="mailto:YOUR_EMAIL_HERE">Email</a>
+    <a href="../">Plain CV</a>
+    <a href="YOUR_LINKEDIN_URL_HERE" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+
+  <h1 class="first">ABIGAIL</h1>
+  <span class="last">BARRETTO</span>
+
+  <div class="intro">
+    <p class="tag">The edit: brand, category and consumer insights for beauty. Mumbai-based, MBA from BITSoM, formerly a copywriter.</p>
+    <p class="hint">Tap a shade to swatch it</p>
+  </div>
+
+  <div class="case">
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="foot">Abigail Barretto · Mumbai</div>
+
+  <section class="card" id="card" role="dialog" aria-labelledby="card-name" hidden>
+    <button class="close" id="close" aria-label="Close swatch card">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="card-head">
+      <span class="chip" id="card-chip"></span>
+      <h2 class="card-name" id="card-name"></h2>
+      <span class="card-org" id="card-org"></span>
+      <span class="card-meta" id="card-meta"></span>
+    </div>
+    <ul class="bul" id="card-bullets"></ul>
+  </section>
+</div>
+
+<script>
+/* ===== EDIT YOUR SHADES HERE =====
+   name    = shade name under the pan
+   cls     = finish + colour ("matte m-..." or "shimmer s-...")
+   org     = company / project
+   meta    = role · details · dates
+   bullets = lines shown on the swatch card
+*/
+const PANS = [
+  { id:'raymond', name:'Field Day', cls:'matte m-terracotta', org:'Raymond Lifestyle', meta:'Management Trainee · Suiting Fabric Sales · Aug 2026 – Present', bullets:[
+    'Leading an MBO (multi-brand outlet) channel-partner classification project for the suiting fabric business.',
+    'Visited 38 MBO counters across the country and analysed three years of sales data.',
+    'Building a tiering framework on volume, value and average selling price, tagged at the individual counter level.',
+    'Linking each tier to differentiated interventions, to answer whether to service fewer counters or grow business at existing ones.'] },
+  { id:'cliq', name:'Category Crush', cls:'shimmer s-gold', org:'Tata CLiQ Luxury', meta:'Category Management Intern · Apr – Jun 2026', bullets:[
+    'Analysed GMV, pricing and brand performance across 7 luxury categories and 450+ brands to support category growth and merchandising decisions.',
+    'Tracked year-on-year category growth across the Indiluxe portfolio, surfacing high-growth verticals and underperforming categories.',
+    'Built an 8-segment customer segmentation framework based on purchase frequency and discount sensitivity.',
+    'Ran consumer insight and pricing evaluations, translating findings into category strategy recommendations.'] },
+  { id:'galderma', name:'Derm Approved', cls:'shimmer s-pink', org:'Galderma', meta:'Brand & Marketing Intern · Prescription Skincare · Jan – Mar 2026', bullets:[
+    'Benchmarked competitors across drugstore, high-end and derma-cosmetic categories for a sensitive-scalp haircare launch, comparing packaging, price points and product claims to inform GTM positioning.',
+    'Worked with 15+ sales associates and RBMs/DSMs nationwide to build and maintain a hospital camp performance tracker, giving region-by-region visibility into targets and planned units.'] },
+  { id:'tatasons', name:'Closed the Deal', cls:'matte m-emerald', org:'Tata Sons', meta:'Brand & Marketing Intern · Customer Centricity Award Program · Apr – Jun 2025', bullets:[
+    'Took end-to-end ownership of vendor selection and onboarding for a 76K+ certificate project.',
+    'Negotiated a 52% cost reduction (₹12L to ₹5.8L) while maintaining data security compliance.',
+    'Managed vendor coordination, UX copy and story curation for the award program and internal communications.'] },
+  { id:'bifrost', name:'Series A', cls:'shimmer s-teal', org:'Bifrost AI', meta:"Strategy Analyst Intern, Founders' Office · Gen AI SaaS · Apr – Jun 2024", bullets:[
+    'Owned GTM planning across 200+ accounts in 4 verticals.',
+    'Coordinated cross-functional execution across product, sales and communications teams.',
+    'Drove coverage across 15 global media outlets for the Series A fundraise.'] },
+  { id:'weber', name:'Copy That', cls:'matte m-hotpink', org:'Weber Shandwick', meta:'Senior Copywriter · Castrol, Kotak, L&T, ABB, Novartis, South African Tourism · Sep 2020 – Jan 2023', bullets:[
+    'Delivered 8.3M+ campaign views for MNC clients through integrated campaigns, social media strategy and branded content.',
+    'Grew social media audience by 460% through consumer insight-led messaging, audience targeting and platform-specific content.',
+    'Led pitch strategy and RFP development that contributed to ₹55 lakh in new business, working across creative, strategy and client servicing.'] },
+  { id:'glowcast', name:'Forecast', cls:'shimmer s-holo', org:'GlowCast Pro', meta:'Self-built AI prototype · D2C skincare', link:'https://glowcast-pro.vercel.app/', bullets:[
+    'Spotted a gap: skincare efficacy shifts with climate and weather, yet most product recommendations stay generic.',
+    "Designed an AI-powered prototype that personalises suggestions from a user's existing routine and real-time weather."] },
+  { id:'aura', name:'Aura', cls:'shimmer s-violet', org:"L'Oréal Brandstorm 2026", meta:'Case competition · Refillable fragrance pen concept', bullets:[
+    'Developed Aura, a refillable fragrance pen concept, as part of a team.',
+    'Designed the consumer questionnaire end to end and built most of the submission deck.'] },
+  { id:'lulu', name:'Warm Up', cls:'matte m-coral', org:'Tata CLiQ × Lululemon India launch', meta:'Marketing Intern · Jul 2026', bullets:[
+    'Built a community activation partner deck for the Lululemon launch in India.',
+    'Built a deck pitching a Tata CLiQ wellness IP to Amex.'] },
+  { id:'bombaybound', name:'Saved for Later', cls:'matte m-cobalt', org:'Bombay Bound', meta:'Self-built app · Mumbai places and events saver', bullets:[
+    'Built a personal app that turns places and events saved from social media into one organised Mumbai list.',
+    'Paste a link or upload a screenshot, and AI extracts the place details for a quick review before saving.',
+    'Browse saved spots on a map with status pins or as a grouped list with CSV export; installs on a phone like an app.',
+    'Designed it around a vintage Bombay street-signage look.'] },
+  { id:'edu', name:'Top of Class', cls:'matte m-lilac', org:'Education', meta:'MBA · B.A. · ISC', bullets:[
+    'MBA, BITS School of Management (BITSoM), Mumbai · 3.41/4.0 · 2026 · Marketing & Consumer Insights, E-commerce, Digital Leadership.',
+    'B.A. Psychology & English Literature, Sophia College for Women, Mumbai · 8.46/10 · 2020 · Gill Mohan Prize, Rank 2, Dept. of English.',
+    "ISC, Bombay Scottish School (Mahim) · 94.40% · 2015 · Chairman's Commendation, ISC Humanities topper."] },
+  { id:'contact', name:'Say Hello', cls:'matte m-ink', org:'Contact', meta:'Mumbai, India', bullets:[
+    'Email: YOUR_EMAIL_HERE',
+    'LinkedIn: YOUR_LINKEDIN_URL_HERE'] }
+];
+
+const grid = document.getElementById('grid');
+const card = document.getElementById('card');
+let current = null;
+
+PANS.forEach((p) => {
+  const b = document.createElement('button');
+  b.className = 'cell';
+  b.type = 'button';
+  b.setAttribute('aria-label', p.name + ', ' + p.org);
+  b.innerHTML = '<span class="pan ' + p.cls + '"></span><span class="cap"></span>';
+  b.querySelector('.cap').textContent = p.name;
+  b.addEventListener('click', () => open(p, b));
+  grid.appendChild(b);
+});
+
+function open(p, btn) {
+  if (current) current.classList.remove('sel');
+  current = btn;
+  btn.classList.add('sel');
+  document.getElementById('card-chip').className = 'chip ' + p.cls;
+  document.getElementById('card-name').textContent = p.name;
+  document.getElementById('card-org').textContent = p.org;
+  document.getElementById('card-meta').textContent = p.meta;
+  const ul = document.getElementById('card-bullets');
+  ul.innerHTML = '';
+  p.bullets.forEach((t) => { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+  if (p.link) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = p.link; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'See it live';
+    li.appendChild(a); ul.appendChild(li);
+  }
+  card.hidden = false;
+  card.scrollTop = 0;
+}
+
+function close() {
+  card.hidden = true;
+  if (current) { current.classList.remove('sel'); current.focus(); current = null; }
+}
+
+document.getElementById('close').addEventListener('click', close);
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !card.hidden) close(); });
+</script>
+</body>
+</html>
